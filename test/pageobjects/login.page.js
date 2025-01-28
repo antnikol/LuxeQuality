@@ -7,6 +7,7 @@ class LoginPage extends Page {
   getInputUsername = () => $('input[data-test="username"]')
   getInputPassword = () => $('input[data-test="password"]')
   getBtnSubmit = () => $('input[data-test="login-button"]')
+  getEpicErrorMessage = () => $('h3[data-test="error"]')
 
 
   async login (username, password) {

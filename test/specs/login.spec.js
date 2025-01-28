@@ -4,6 +4,7 @@ import InvertoryPage from '../pageobjects/invertory.page.js'
 import data from '../fixtures/data.json'
 
 
+
 describe('Login Page tests suite', () => {
 
   beforeEach(async () => {
@@ -23,7 +24,9 @@ describe('Login Page tests suite', () => {
 
     await expect(await LoginPage.getLoginErrorIcon()).toBeDisplayed()
     await expect(await LoginPage.getPasswordErrorIcon()).toBeDisplayed()
-    // await expect(await LoginPage)
+    await expect(await LoginPage.getInputUsername()).toHaveClass('error')
+    await expect(await LoginPage.getInputPassword()).toHaveClass('error')
+    await expect(await LoginPage.getEpicErrorMessage()).toHaveText(data.message.loginError)
   })
 
 })
