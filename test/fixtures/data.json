@@ -1,0 +1,21 @@
+{
+  "user": {
+    "name": "standard_user",
+    "email": "testUser33@gmail.com",
+    "password": "secret_sauce",
+    "title": "Mr",
+    "birth_date": "1",
+    "birth_month": "January",
+    "birth_year": "1999",
+    "firstname": "Ann",
+    "lastname": "B.",
+    "company": "company_Name",
+    "address1": "street #4, Madagaskar",
+    "address2": "none",
+    "country": "Canada",
+    "zipcode": "123123",
+    "state": "CA",
+    "city": "California",
+    "mobile_number": "+18123456789"
+  }
+}
