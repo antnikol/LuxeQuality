@@ -3,6 +3,7 @@ import Page from './page.js';
 
 class LoginPage extends Page {
 
+  getXIcon = () => $('svg.error_icon')
   get inputUsername () { return $('input[data-test="username"]') }
   get inputPassword () { return $('input[data-test="password"]') }
   get btnSubmit () { return $('input[data-test="login-button"]') }
@@ -14,8 +15,8 @@ class LoginPage extends Page {
     await this.btnSubmit.click();
   }
 
-  open () {
-    return super.open('login');
+  async open () {
+    return await browser.url('/');
   }
 }
 

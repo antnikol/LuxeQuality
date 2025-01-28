@@ -3,6 +3,8 @@
     "name": "standard_user",
     "email": "testUser33@gmail.com",
     "password": "secret_sauce",
+    "invalid_password": "any random value",
+    "baseURL":"https://www.saucedemo.com",
     "title": "Mr",
     "birth_date": "1",
     "birth_month": "January",

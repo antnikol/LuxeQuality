@@ -5,6 +5,7 @@ import data from '../fixtures/data.json'
 
 
 describe('Login Page tests suite', () => {
+
   it('Login with the user valid login and the valid password', async () => {
     await LoginPage.open()
 
@@ -13,5 +14,15 @@ describe('Login Page tests suite', () => {
     await expect(InvertoryPage.getInvertoryList()).toBeDisplayed()
     await expect(InvertoryPage.getCartIcon()).toBeDisplayed()
   })
+
+  // it('Login with the user invalid login and the valid password', async () => {
+  //   await LoginPage.open(base)
+
+  //   await LoginPage.login(data.user.name, data.user.invalid_password)
+  //   await expect(InvertoryPage.getSecondaryHeaderTitle()).toHaveText('Products')
+  //   await expect(InvertoryPage.getInvertoryList()).toBeDisplayed()
+  //   await expect(InvertoryPage.getCartIcon()).toBeDisplayed()
+  // })
+
 })
 
