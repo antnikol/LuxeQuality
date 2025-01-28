@@ -15,10 +15,16 @@ describe('Login Page tests suite', () => {
     await LoginPage.login(data.user.name, data.user.password)
   })
 
-  it('Sorting products due choosed filter', async () => {
+  it('Sorting products due choosed filter: "Price (low to high)"', async () => {
     await InvertoryPage.clickProductSortingButton()
     await InvertoryPage.selectSortOptionByText(data.filter.priceLowHigh)
     await expect(await InvertoryPage.getItemPrices()).toEqual(await InvertoryPage.sortItemPricesLowToHigh())
+  })
+
+  it('Sorting products due choosed filter: "Price (high to low)"', async () => {
+    await InvertoryPage.clickProductSortingButton()
+    await InvertoryPage.selectSortOptionByText(data.filter.priceHighLow)
+    await expect(await InvertoryPage.getItemPrices()).toEqual(await InvertoryPage.sortItemPricesHighToLow())
   })
 
 

@@ -42,6 +42,11 @@ class InvertoryPage extends Page {
     const prices = await this.getItemPrices()
     return prices.sort((a, b) => a - b)
   }
+
+  async sortItemPricesHighToLow() {
+    const prices = await this.getItemPrices()
+    return prices.sort((a, b) => b - a)
+  }
 }
 
 export default new InvertoryPage();
