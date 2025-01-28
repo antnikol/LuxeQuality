@@ -42,15 +42,15 @@ describe('Login Page tests suite', () => {
     await expect(await LoginPage.getEpicErrorMessage()).toHaveText(data.message.loginError)
   })
 
-  it('Check that user can logout', async () => {
-    await LoginPage.login(data.user.name, data.user.password)
-    await InvertoryPage.clickBurgerButton()
-    await InvertoryPage.clickLogoutButton()
-
-    await expect(await LoginPage.getCurrentUrl()).toBe(data.message.baseUrl)
-    await expect(LoginPage.getInputUsername()).toHaveValue('')
-    await expect(LoginPage.getInputPassword()).toHaveValue('')
-  })
+    it('Check that user can logout', async () => {
+      await LoginPage.login(data.user.name, data.user.password)
+      await InvertoryPage.clickBurgerButton()
+      await InvertoryPage.clickLogoutButton()
+  
+      await expect(await LoginPage.getCurrentUrl()).toBe(data.message.baseUrl)
+      await expect(LoginPage.getInputUsername()).toHaveValue('')
+      await expect(LoginPage.getInputPassword()).toHaveValue('')
+    })
 
 })
 

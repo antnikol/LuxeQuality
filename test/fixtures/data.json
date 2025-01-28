@@ -6,6 +6,7 @@
 
   "message": {
     "loginError": "Epic sadface: Username and password do not match any user in this service",
-    "baseUrl": "https://www.saucedemo.com/"
+    "baseUrl": "https://www.saucedemo.com/",
+    "cartUrl": "/cart.html"
   }
 }

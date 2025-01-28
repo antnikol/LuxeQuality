@@ -3,13 +3,19 @@ import Page from './page.js';
 
 class InvertoryPage extends Page {
 
-  getSecondaryHeaderTitle = () => $('span[data-test="title"]')
   getInvertoryList = () => $('div[data-test="inventory-list"]')
-  getCartIcon = () => $('a[data-test="shopping-cart-link"]')
-  
+  getItemNames = () => $$('[data-test="inventory-item-name"]')
+  getAddToCartButtons = () => $$('button.btn_inventory')
 
 
+  async clickFirstAddToCartButton() {
+    await this.getAddToCartButtons()[0].click()
+    return this
+  }
 
+  async getFirstItemName() {
+    return await this.getItemNames()[0].getText()
+  }
 }
 
 export default new InvertoryPage();
