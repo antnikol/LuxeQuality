@@ -1,11 +1,11 @@
 {
   "user": {
     "name": "standard_user",
-    "password": "secret_sauce",
-    "invalid_password": "any random value"
+    "password": "secret_sauce"
   }, 
-  
+
   "message": {
-    "loginError": "Epic sadface: Username and password do not match any user in this service"
+    "loginError": "Epic sadface: Username and password do not match any user in this service",
+    "baseUrl": "https://www.saucedemo.com/"
   }
 }

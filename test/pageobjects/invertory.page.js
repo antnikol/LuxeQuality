@@ -7,6 +7,9 @@ class InvertoryPage extends Page {
   getInvertoryList = () => $('div[data-test="inventory-list"]')
   getCartIcon = () => $('a[data-test="shopping-cart-link"]')
   
+
+
+
 }
 
 export default new InvertoryPage();

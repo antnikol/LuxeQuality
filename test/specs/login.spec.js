@@ -16,9 +16,10 @@ describe('Login Page tests suite', () => {
   it('Login with the user valid login and the valid password', async () => {
     await LoginPage.login(data.user.name, data.user.password)
 
-    await expect(InvertoryPage.getSecondaryHeaderTitle()).toHaveText('Products')
-    await expect(InvertoryPage.getInvertoryList()).toBeDisplayed()
-    await expect(InvertoryPage.getCartIcon()).toBeDisplayed()
+    await expect(await InvertoryPage.getSecondaryHeaderTitle()).toHaveText('Products')
+    await expect(await InvertoryPage.getCurrentUrl()).toContain('inventory.html')
+    await expect(await InvertoryPage.getInvertoryList()).toBeDisplayed()
+    await expect(await InvertoryPage.getCartIcon()).toBeDisplayed()
   })
 
   it('Login with the user valid login and the invalid password', async () => {
@@ -39,6 +40,16 @@ describe('Login Page tests suite', () => {
     await expect(await LoginPage.getInputUsername()).toHaveClass('error')
     await expect(await LoginPage.getInputPassword()).toHaveClass('error')
     await expect(await LoginPage.getEpicErrorMessage()).toHaveText(data.message.loginError)
+  })
+
+  it('Check that user can logout', async () => {
+    await LoginPage.login(data.user.name, data.user.password)
+    await InvertoryPage.clickBurgerButton()
+    await InvertoryPage.clickLogoutButton()
+
+    await expect(await LoginPage.getCurrentUrl()).toBe(data.message.baseUrl)
+    await expect(LoginPage.getInputUsername()).toHaveValue('')
+    await expect(LoginPage.getInputPassword()).toHaveValue('')
   })
 
 })
