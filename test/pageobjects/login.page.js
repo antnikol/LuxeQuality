@@ -3,21 +3,31 @@ import Page from './page.js';
 
 class LoginPage extends Page {
 
-  getXIcon = () => $('svg.error_icon')
-  get inputUsername () { return $('input[data-test="username"]') }
-  get inputPassword () { return $('input[data-test="password"]') }
-  get btnSubmit () { return $('input[data-test="login-button"]') }
+  getErrorIcons = () => $$('svg.error_icon')
+  getInputUsername = () => $('input[data-test="username"]')
+  getInputPassword = () => $('input[data-test="password"]')
+  getBtnSubmit = () => $('input[data-test="login-button"]')
 
 
   async login (username, password) {
-    await this.inputUsername.setValue(username);
-    await this.inputPassword.setValue(password);
-    await this.btnSubmit.click();
+    await this.getInputUsername().setValue(username);
+    await this.getInputPassword().setValue(password);
+    await this.getBtnSubmit().click();
   }
 
   async open () {
     return await browser.url('/');
   }
+
+  async getLoginErrorIcon() {
+    return await this.getErrorIcons()[0]
+  }
+  
+  async getPasswordErrorIcon() {
+    return await this.getErrorIcons()[1]
+  }
+
+
 }
 
 export default new LoginPage();

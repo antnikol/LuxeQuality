@@ -6,23 +6,25 @@ import data from '../fixtures/data.json'
 
 describe('Login Page tests suite', () => {
 
-  it('Login with the user valid login and the valid password', async () => {
+  beforeEach(async () => {
     await LoginPage.open()
+  })
 
+  it('Login with the user valid login and the valid password', async () => {
     await LoginPage.login(data.user.name, data.user.password)
+
     await expect(InvertoryPage.getSecondaryHeaderTitle()).toHaveText('Products')
     await expect(InvertoryPage.getInvertoryList()).toBeDisplayed()
     await expect(InvertoryPage.getCartIcon()).toBeDisplayed()
   })
 
-  // it('Login with the user invalid login and the valid password', async () => {
-  //   await LoginPage.open(base)
+  it('Login with the user invalid login and the valid password', async () => {
+    await LoginPage.login(data.user.name, data.user.invalid_password)
 
-  //   await LoginPage.login(data.user.name, data.user.invalid_password)
-  //   await expect(InvertoryPage.getSecondaryHeaderTitle()).toHaveText('Products')
-  //   await expect(InvertoryPage.getInvertoryList()).toBeDisplayed()
-  //   await expect(InvertoryPage.getCartIcon()).toBeDisplayed()
-  // })
+    await expect(await LoginPage.getLoginErrorIcon()).toBeDisplayed()
+    await expect(await LoginPage.getPasswordErrorIcon()).toBeDisplayed()
+    // await expect(await LoginPage)
+  })
 
 })
 
