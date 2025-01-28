@@ -7,7 +7,8 @@ class InvertoryPage extends Page {
   getItemNames = () => $$('[data-test="inventory-item-name"]')
   getAddToCartButtons = () => $$('button.btn_inventory')
   getProductSortingButton = () => $('select[data-test="product-sort-container"]')
-  getItemPricesElements = () => $$('div[data-test="inventory-item-price"]')
+  getItemPricesElements = async () => await $$('[data-test="inventory-item-price"]')
+  getItemNamesElements = async () => await $$('a div[data-test="inventory-item-name"]')
 
 
   async clickFirstAddToCartButton() {
@@ -29,7 +30,7 @@ class InvertoryPage extends Page {
   }
 
   async getItemPrices() {
-    const prices = await $$('[data-test="inventory-item-price"]')
+    const prices = await this.getItemPricesElements()
     const priceArray = []
     for (const price of prices) {
       const priceText = await price.getText()
@@ -46,6 +47,26 @@ class InvertoryPage extends Page {
   async sortItemPricesHighToLow() {
     const prices = await this.getItemPrices()
     return prices.sort((a, b) => b - a)
+  }
+
+  async getItemNamesArray() {
+    const names = await this.getItemNamesElements()
+    const nameArray = []
+    for (const name of names) {
+        const nameText = await name.getText()
+        nameArray.push(nameText.trim())
+    }
+    return nameArray;
+}
+
+  async sortItemNamesAZ() {
+    const names = await this.getItemNamesArray()
+    return names.sort()
+  }
+
+  async sortItemNamesZA() {
+    const names = await this.getItemNamesArray()
+    return names.sort((a, b) => b.localeCompare(a))
   }
 }
 
