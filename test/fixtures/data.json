@@ -15,13 +15,6 @@
     "cartIsEmpty": "Cart is empty"
   },
 
-  "filter": {
-    "nameAZ": "Name (A to Z)",
-    "nameZA": "Name (Z to A)",
-    "priceLowHigh": "Price (low to high)",
-    "priceHighLow": "Price (high to low)"
-  },
-
   "sortingFilters": [
     { "name": "Price (low to high)", "sortFunction": "sortItemPricesLowToHigh", "getFunction": "getItemPrices" },
     { "name": "Price (high to low)", "sortFunction": "sortItemPricesHighToLow", "getFunction": "getItemPrices" },
