@@ -10,6 +10,10 @@
     "allure-commandline": "^2.32.0",
     "webdriverio": "^9.7.1"
   },
+  "scripts": {
+    "wdio": "wdio run ./wdio.conf.js",
+    "allure-generate" : "allure generate allure-results"
+  },
   "dependencies": {
     "@faker-js/faker": "^9.4.0",
     "chromedriver": "^132.0.1"
