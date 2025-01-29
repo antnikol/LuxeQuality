@@ -15,7 +15,7 @@ describe('Login Page tests suite', () => {
     await LoginPage.login(data.user.name, data.user.password)
   })
 
-  it('Saving the card after logout', async () => {
+  it('Test Case #5 | Saving cart contents after logout/login', async () => {
     const firstItemName = await InvertoryPage.getFirstItemName()
     await InvertoryPage.clickFirstAddToCartButton()
     await InvertoryPage.clickBurgerButton()

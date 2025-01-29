@@ -13,7 +13,7 @@ describe('Login Page tests suite', () => {
     await LoginPage.open()
   })
 
-  it('Login with the user valid login and the valid password', async () => {
+  it('Test Case #1 | Login with the user valid login and the valid password', async () => {
     await LoginPage.login(data.user.name, data.user.password)
 
     await expect(await InvertoryPage.getSecondaryHeaderTitle()).toHaveText('Products')
@@ -22,7 +22,7 @@ describe('Login Page tests suite', () => {
     await expect(await InvertoryPage.getCartIcon()).toBeDisplayed()
   })
 
-  it('Login with the user valid login and the invalid password', async () => {
+  it('Test Case #2 | Login with the user valid login and the invalid password', async () => {
     await LoginPage.login(data.user.name, genData.userPassword)
 
     await expect(await LoginPage.getLoginErrorIcon()).toBeDisplayed()
@@ -32,7 +32,7 @@ describe('Login Page tests suite', () => {
     await expect(await LoginPage.getEpicErrorMessage()).toHaveText(data.message.loginError)
   })
 
-  it('Login with the user invalid login and the valid password', async () => {
+  it('Test Case #3 | Login with the user invalid login and the valid password', async () => {
     await LoginPage.login(genData.userName, data.user.password)
 
     await expect(await LoginPage.getLoginErrorIcon()).toBeDisplayed()
@@ -42,7 +42,7 @@ describe('Login Page tests suite', () => {
     await expect(await LoginPage.getEpicErrorMessage()).toHaveText(data.message.loginError)
   })
 
-    it('Check that user can logout', async () => {
+    it('Test Case #4 | Check that user can logout', async () => {
       await LoginPage.login(data.user.name, data.user.password)
       await InvertoryPage.clickBurgerButton()
       await InvertoryPage.clickLogoutButton()

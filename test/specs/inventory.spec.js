@@ -16,11 +16,22 @@ describe('Login Page tests suite', () => {
   })
 
   data.sortingFilters.forEach(({ name, sortFunction, getFunction }) => {
-    it(`Sorting products due to chosen filter: "${name}"`, async () => {
+    it(`Test Case #6 | Sorting products due to chosen filter: "${name}"`, async () => {
       await InvertoryPage.clickProductSortingButton()
       await InvertoryPage.selectSortOptionByText(name)
 
       await expect(await InvertoryPage[getFunction]()).toEqual(await InvertoryPage[sortFunction]())
+    })
+  })
+
+  data.socialLinks.forEach(({ icon, clickFunction, expectedURL }) => {
+    it(`Test Case #7 | Checking footer ${icon} icon & link`, async () => {
+      await InvertoryPage[clickFunction]()
+      await InvertoryPage.switchToNewTab()
+
+      await expect(await browser.getUrl()).toContain(expectedURL)
+
+      await InvertoryPage.closeCurrentTabAndSwitchBack()
     })
   })
 
