@@ -66,10 +66,6 @@ jobs:
       - name: Remove old Allure report
         run: rm -rf allure-report
 
-      # - name: Generate Allure report
-      #   run: allure generate allure-results --clean
-      #   continue-on-error: true
-
       - name: Generate Allure report
         uses: simple-elf/allure-report-action@master
         if: always()
@@ -95,3 +91,7 @@ jobs:
         with:
           name: allure-report
           path: ./allure-report
+
+      # - name: Generate Allure report
+      #   run: allure generate allure-results --clean
+      #   continue-on-error: true
