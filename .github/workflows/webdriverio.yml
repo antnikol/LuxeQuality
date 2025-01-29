@@ -60,16 +60,24 @@ jobs:
           ref: gh-pages
           path: allure-history
 
-      - name: Generate Allure report
-        uses: simple-elf/allure-report-action@master
+      # - name: Generate Allure report
+      #   uses: simple-elf/allure-report-action@master
+      #   if: always()
+      #   id: allure-report
+      #   with:
+      #     allure_results: allure-results
+      #     gh_pages: gh-pages
+      #     allure_report: allure-report
+      #     allure_history: allure-history
+      #     keep_reports: 20
+
+      - name: Build Allure report
+        uses: simple-elf/allure-report-action@v1.7
         if: always()
-        id: allure-report
         with:
+          gh_pages: allure-history
           allure_results: allure-results
-          gh_pages: gh-pages
-          allure_report: allure-report
           allure_history: allure-history
-          keep_reports: 20
 
       - name: Deploy report to Github Pages
         if: always()
@@ -78,7 +86,6 @@ jobs:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           publish_branch: gh-pages
           publish_dir: allure-history
-          force_orphan: true
 
       - name: Upload Allure report
         uses: actions/upload-artifact@v4
