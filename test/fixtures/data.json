@@ -15,5 +15,12 @@
     "nameZA": "Name (Z to A)",
     "priceLowHigh": "Price (low to high)",
     "priceHighLow": "Price (high to low)"
-  }
+  },
+
+  "sortingFilters": [
+    { "name": "Price (low to high)", "sortFunction": "sortItemPricesLowToHigh", "getFunction": "getItemPrices" },
+    { "name": "Price (high to low)", "sortFunction": "sortItemPricesHighToLow", "getFunction": "getItemPrices" },
+    { "name": "Name (A to Z)", "sortFunction": "sortItemNamesAZ", "getFunction": "getItemNamesArray" },
+    { "name": "Name (Z to A)", "sortFunction": "sortItemNamesZA", "getFunction": "getItemNamesArray" }
+  ]
 }
