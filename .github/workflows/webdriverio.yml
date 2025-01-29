@@ -29,6 +29,25 @@ jobs:
       - name: Install Allure commandline via NPM
         run: npm install -g allure-commandline --save-dev
 
+      - name: Install Chrome and ChromeDriver
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y google-chrome-stable
+          CHROME_VERSION=$(google-chrome --version | awk '{print $3}')
+          echo "Installed Chrome version: $CHROME_VERSION"
+
+          sudo apt-get install -y unzip
+          CHROMEDRIVER_VERSION=$(curl -sS chromedriver.storage.googleapis.com/LATEST_RELEASE)
+          wget https://chromedriver.storage.googleapis.com/$CHROMEDRIVER_VERSION/chromedriver_linux64.zip
+          unzip chromedriver_linux64.zip
+          sudo mv chromedriver /usr/local/bin/
+          chromedriver --version
+
+      - name: Verify installed browsers
+        run: |
+          google-chrome --version || echo "Chrome is not installed!"
+          chromedriver --version || echo "ChromeDriver is not installed!"
+
       - name: Run WebdriverIO tests
         run: npx wdio run wdio.conf.js
         continue-on-error: true
@@ -41,22 +60,35 @@ jobs:
           ref: gh-pages
           path: allure-history
 
-      - name: Build Allure report
-        run: allure generate allure-results --clean
+      - name: Generate Allure report
+        uses: simple-elf/allure-report-action@master
         if: always()
+        id: allure-report
+        with:
+          allure_results: allure-results
+          gh_pages: gh-pages
+          allure_report: allure-report
+          allure_history: allure-history
+          keep_reports: 20
 
-      - name: Check allure-results directory
-        run: ls -la allure-results
+      - name: Deploy report to Github Pages
         if: always()
-
-      - name: Publish Allure report
         uses: peaceiris/actions-gh-pages@v3
-        if: always()
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           publish_branch: gh-pages
           publish_dir: allure-history
           force_orphan: true
+
+      - name: Post the link to the report
+        if: always()
+        uses: Sibz/github-status-action@v1
+        with:
+          authToken: ${{ secrets.GITHUB_TOKEN }}
+          context: "Test report"
+          state: "success"
+          sha: ${{ github.event.pull_request.head.sha }}
+          target_url: https://your-github-username.github.io/your-repo-name/${{ github.run_number }}/index.html
 
       - name: Upload Allure report
         uses: actions/upload-artifact@v4
