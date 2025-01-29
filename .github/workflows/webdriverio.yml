@@ -45,6 +45,10 @@ jobs:
         run: allure generate allure-results --clean
         if: always()
 
+      - name: Check allure-results directory
+        run: ls -la allure-results
+        if: always()
+
       - name: Publish Allure report
         uses: peaceiris/actions-gh-pages@v3
         with:

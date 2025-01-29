@@ -13,7 +13,8 @@ class CartPage extends Page {
   }
 
   async clickCheckoutButton() {
-    return await this.getCheckoutButton().click()
+    await this.getCheckoutButton().click()
+    return this
   }
 
   async isTextPresent(text) {
