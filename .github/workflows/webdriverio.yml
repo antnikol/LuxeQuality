@@ -61,7 +61,7 @@ jobs:
           path: allure-history
 
       - name: Generate Allure report
-        run: npm run allure-generate
+        run: npm run allure-generate --clean
         continue-on-error: true
 
       # - name: Generate Allure report
