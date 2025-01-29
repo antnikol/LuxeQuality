@@ -1,0 +1,30 @@
+Bug Report: Checkout Without Products
+
+Bug ID: BUG-001
+Title: Checkout allowed with an empty cart
+Environment:
+  Browser: Version 132.0.6834.111 (Official Build) (64-bit)
+  OS: Windows 10 Pro, Version 22H2, OS build 19045.5371 
+  Test Environment: Production
+
+Severity: Minor
+Priority: Medium
+
+Preconditions: User is logined to account. User is on the inventory page
+Steps to Reproduce:
+  1. Click on the "Cart" button at the top right corner.
+  2. Click on the "Checkout" button.
+
+Expected Result:
+  1. The user remains on the "Cart" page.
+  2. An error message "Cart is empty" is displayed.
+
+Actual Result:
+  1. The user is redirected to the "Checkout" page.
+  2. The "Checkout: Your Information" title and checkout form are displayed.
+
+Attachments:
+"attachment_for_BugReport_to_TC-9.png"
+
+Notes:
+This issue allows users to proceed with checkout without any products, which may cause unexpected behavior in later steps of the checkout process.
