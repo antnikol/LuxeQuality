@@ -1,3 +1,5 @@
+import allureCommandline from 'allure-commandline'
+
 export const config = {
     //
     // ====================
@@ -274,15 +276,15 @@ export const config = {
     // onComplete: function(exitCode, config, capabilities, results) {
     // },
     onComplete: function() {
-        const allureReport = allure(['generate', 'allure-results', '--clean']);
-        allureReport.on('exit', function(exitCode) {
+      const allureReport = allureCommandline(['generate', 'allure-results', '--clean']);
+      allureReport.on('exit', function(exitCode) {
           if (exitCode !== 0) {
-            console.log('Error generating Allure report');
-            return;
+              console.log('Error generating Allure report');
+              return;
           }
           console.log('Allure report successfully generated');
-        });
-      }
+      });
+    }
     /**
     * Gets executed when a refresh happens.
     * @param {string} oldSessionId session ID of the old session
