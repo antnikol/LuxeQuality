@@ -42,7 +42,7 @@ jobs:
           path: allure-history
 
       - name: Build Allure report
-        run: allure serve allure-results
+        run: allure generate allure-results
         if: always()
 
       - name: Check allure-results directory
