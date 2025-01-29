@@ -10,7 +10,9 @@
     "cartUrl": "/cart.html",
     "twitterURL": "https://x.com/saucelabs",
     "facebookURL": "https://www.facebook.com/saucelabs",
-    "linkedinURL": "https://www.linkedin.com/company/sauce-labs/"
+    "linkedinURL": "https://www.linkedin.com/company/sauce-labs/",
+    "orderSuccessMessage": "Thank you for your order!",
+    "cartIsEmpty": "Cart is empty"
   },
 
   "filter": {

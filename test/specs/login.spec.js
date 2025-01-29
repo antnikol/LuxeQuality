@@ -19,6 +19,7 @@ describe('Login Page tests suite', () => {
     await expect(await InvertoryPage.getSecondaryHeaderTitle()).toHaveText('Products')
     await expect(await InvertoryPage.getCurrentUrl()).toContain('inventory.html')
     await expect(await InvertoryPage.getInvertoryList()).toBeDisplayed()
+    await expect(await InvertoryPage.getInvertoryArray().length).toBeGreaterThan(0)
     await expect(await InvertoryPage.getCartIcon()).toBeDisplayed()
   })
 

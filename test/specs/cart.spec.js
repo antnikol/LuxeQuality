@@ -8,7 +8,7 @@ import CartPage from '../pageobjects/cart.page.js'
 const genData = genTestData()
 
 
-describe('Login Page tests suite', () => {
+describe('Cart Page tests suite', () => {
 
   beforeEach(async () => {
     await LoginPage.open()
@@ -30,7 +30,6 @@ describe('Login Page tests suite', () => {
     await expect(await CartPage.getSecondaryHeaderTitle()).toHaveText('Your Cart')
     await expect(await CartPage.getFirstItemName()).toBe(firstItemName)
   })
-
 
 })
 

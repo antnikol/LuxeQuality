@@ -60,5 +60,5 @@ export default class Page {
         await browser.closeWindow();
         await browser.switchToWindow(handles[0]);
     }
-}
+  }
 }

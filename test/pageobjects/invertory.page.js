@@ -4,16 +4,23 @@ import Page from './page.js';
 class InvertoryPage extends Page {
 
   getInvertoryList = () => $('div[data-test="inventory-list"]')
+  getInvertoryArray = () => $$('div[data-test="inventory-list"]')
   getItemNames = () => $$('[data-test="inventory-item-name"]')
   getAddToCartButtons = () => $$('button.btn_inventory')
   getProductSortingButton = () => $('select[data-test="product-sort-container"]')
-  getItemPricesElements = async () => await $$('[data-test="inventory-item-price"]')
-  getItemNamesElements = async () => await $$('a div[data-test="inventory-item-name"]')
-
+  getItemPricesElements = () => $$('[data-test="inventory-item-price"]')
+  getItemNamesElements = () => $$('a div[data-test="inventory-item-name"]')
+  getFullCartIcon = () => $('[data-test="shopping-cart-badge"]')
+  
 
   async clickFirstAddToCartButton() {
     await this.getAddToCartButtons()[0].click()
     return this
+  }
+
+  async getFirstItemPriceNumber() {
+    const priceText = await this.getItemPricesElements()[0].getText()
+    return parseFloat(priceText.replace(/[^0-9.]/g, ''))
   }
 
   async getFirstItemName() {

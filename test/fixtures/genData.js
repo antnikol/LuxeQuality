@@ -14,5 +14,8 @@ export const genTestData = () => {
     userName: faker.string.alphanumeric(10),
     userEmail: faker.internet.email(),
     userPassword: faker.internet.password(),
+    userFirstName: faker.person.firstName(),
+    userLastName: faker.person.lastName(),
+    userZipCode: faker.location.zipCode()
   }
 }

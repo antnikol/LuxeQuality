@@ -8,7 +8,7 @@ import CartPage from '../pageobjects/cart.page.js'
 const genData = genTestData()
 
 
-describe('Login Page tests suite', () => {
+describe('Inventory Page tests suite', () => {
 
   beforeEach(async () => {
     await LoginPage.open()
