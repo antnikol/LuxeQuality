@@ -15,6 +15,15 @@
     "cartIsEmpty": "Cart is empty"
   },
 
+  "page": {
+    "cartPageTitle": "Your Cart",
+    "inventoryURL": "/inventory.html",
+    "checkoutCompleteTitle": "Checkout: Complete!",
+    "checkoutOverviewTitle": "Checkout: Overview",
+    "inventoryPageTitle": "Products",
+    "errorClass": "error"
+  },
+
   "sortingFilters": [
     { "name": "Price (low to high)", "sortFunction": "sortItemPricesLowToHigh", "getFunction": "getItemPrices" },
     { "name": "Price (high to low)", "sortFunction": "sortItemPricesHighToLow", "getFunction": "getItemPrices" },

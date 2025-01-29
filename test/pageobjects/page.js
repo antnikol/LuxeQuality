@@ -9,6 +9,8 @@ export default class Page {
   getTwitterIcon = () => $('a[data-test="social-twitter"]')
   getFacebookIcon = () => $('a[data-test="social-facebook"]')
   getLinkedinIcon = () => $('a[data-test="social-linkedin"]')
+  getSidebarLinkList = () => $$('.bm-item.menu-item')
+  getCartIconQuantity = () => $('[data-test="shopping-cart-badge"]')
 
   async getCurrentUrl() {
     return await browser.getUrl()
@@ -52,7 +54,7 @@ export default class Page {
 
     const handles = await browser.getWindowHandles();
     await browser.switchToWindow(handles[1]);
-}
+  }
 
   async closeCurrentTabAndSwitchBack() {
     const handles = await browser.getWindowHandles();
@@ -60,5 +62,9 @@ export default class Page {
         await browser.closeWindow();
         await browser.switchToWindow(handles[0]);
     }
+  }
+
+  async getCartIconQuantityText() {
+    return await this.getCartIconQuantity().getText()
   }
 }

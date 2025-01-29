@@ -12,6 +12,7 @@ class Checkout extends Page {
   getFinishButton = () => $('button[data-test="finish"]')
   getOrderSuccessMessage = () => $('[data-test="complete-header"]')
   getBackHomeButton = () => $('button[data-test="back-to-products"]')
+  getCheckoutForm = () => $('.checkout_info')
 
   async typeFirstNameField(firstName) {
     return await this.getFirstNameField().setValue(firstName)
