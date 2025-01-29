@@ -1,0 +1,30 @@
+{
+  "user": {
+    "name": "standard_user",
+    "password": "secret_sauce"
+  }, 
+
+  "message": {
+    "loginError": "Epic sadface: Username and password do not match any user in this service",
+    "baseUrl": "https://www.saucedemo.com/",
+    "cartUrl": "/cart.html",
+    "twitterURL": "https://x.com/saucelabs",
+    "facebookURL": "https://www.facebook.com/saucelabs",
+    "linkedinURL": "https://www.linkedin.com/company/sauce-labs/",
+    "orderSuccessMessage": "Thank you for your order!",
+    "cartIsEmpty": "Cart is empty"
+  },
+
+  "sortingFilters": [
+    { "name": "Price (low to high)", "sortFunction": "sortItemPricesLowToHigh", "getFunction": "getItemPrices" },
+    { "name": "Price (high to low)", "sortFunction": "sortItemPricesHighToLow", "getFunction": "getItemPrices" },
+    { "name": "Name (A to Z)", "sortFunction": "sortItemNamesAZ", "getFunction": "getItemNamesArray" },
+    { "name": "Name (Z to A)", "sortFunction": "sortItemNamesZA", "getFunction": "getItemNamesArray" }
+  ],
+
+  "socialLinks": [
+    { "icon": "Twitter", "clickFunction": "clickTwitterIcon", "expectedURL": "https://x.com/saucelabs" },
+    { "icon": "Facebook", "clickFunction": "clickFacebookIcon", "expectedURL": "https://www.facebook.com/saucelabs" },
+    { "icon": "LinkedIn", "clickFunction": "clickLinkedinIcon", "expectedURL": "https://www.linkedin.com/company/sauce-labs/" }
+  ]
+}
