@@ -124,15 +124,7 @@ export const config = {
     // Test reporter for stdout.
     // The only one supported by default is 'dot'
     // see also: https://webdriver.io/docs/dot-reporter
-    reporters: [
-        "spec",
-        [
-          "allure",
-          {
-            outputDir: "allure-results",
-          },
-        ],
-      ],
+    reporters: ["spec",["allure", {outputDir: "allure-results", disableWebdriverStepsReporting: true, disableWebdriverScreenshotsReporting: true,},]],
 
     // Options to be passed to Mocha.
     // See the full list at http://mochajs.org/
@@ -281,6 +273,16 @@ export const config = {
      */
     // onComplete: function(exitCode, config, capabilities, results) {
     // },
+    onComplete: function() {
+        const allureReport = allure(['generate', 'allure-results', '--clean']);
+        allureReport.on('exit', function(exitCode) {
+          if (exitCode !== 0) {
+            console.log('Error generating Allure report');
+            return;
+          }
+          console.log('Allure report successfully generated');
+        });
+      }
     /**
     * Gets executed when a refresh happens.
     * @param {string} oldSessionId session ID of the old session

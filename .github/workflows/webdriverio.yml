@@ -42,12 +42,8 @@ jobs:
           path: allure-history
 
       - name: Build Allure report
-        uses: simple-elf/allure-report-action@v1.7
+        run: allure generate allure-results --clean
         if: always()
-        with:
-          gh_pages: allure-history
-          allure_results: allure-results
-          allure_history: allure-history
 
       - name: Publish Allure report
         uses: peaceiris/actions-gh-pages@v3
