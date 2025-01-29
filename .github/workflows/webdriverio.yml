@@ -60,12 +60,6 @@ jobs:
           ref: gh-pages
           path: allure-history
 
-      # - name: Ensure allure-results exists
-      #   run: mkdir -p allure-results
-
-      # - name: Remove old Allure report
-      #   run: rm -rf allure-report
-
       - name: Generate Allure report
         uses: simple-elf/allure-report-action@master
         if: always()
