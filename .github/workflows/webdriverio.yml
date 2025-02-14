@@ -48,8 +48,8 @@ jobs:
           google-chrome --version || echo "Chrome is not installed!"
           chromedriver --version || echo "ChromeDriver is not installed!"
 
-      - name: Run WebdriverIO tests
-        run: npm run wdio
+      - name: Run WebdriverIO tests (Mocha & Cucumber)
+        run: npm run wdio -- --spec ./test/specs/*.spec.js,./features/*.feature
         continue-on-error: true
 
       - name: Load test report history
