@@ -53,6 +53,7 @@ export const config = {
     //
     capabilities: [{
         // capabilities for local browser web tests
+        maxInstances: 1,
         browserName: 'chrome', // or "firefox", "microsoftedge", "safari"
         'goog:chromeOptions': {
             args: ['--headless', '--disable-gpu']

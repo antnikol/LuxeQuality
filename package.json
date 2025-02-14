@@ -18,6 +18,8 @@
   },
   "scripts": {
     "wdio": "wdio run ./wdio.conf.js",
+    "wdio:mocha": "wdio wdio.mocha.conf.js",    
+    "wdio:cucumber": "wdio wdio.cucumber.conf.js",
     "allure-generate": "allure generate allure-results"
   },
   "dependencies": {

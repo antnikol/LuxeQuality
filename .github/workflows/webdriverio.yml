@@ -49,11 +49,11 @@ jobs:
           chromedriver --version || echo "ChromeDriver is not installed!"
 
       - name: Run Mocha WebdriverIO tests
-        run: npm run wdio.mocha.conf.js
+        run: npm run wdio:mocha
         continue-on-error: true
 
       - name: Run Cucumber WebdriverIO tests
-        run: npm run wdio.cucumber.conf.js
+        run: npm run wdio:cucumber
         continue-on-error: true
 
       - name: Load test report history
