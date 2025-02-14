@@ -115,19 +115,7 @@ export const config = {
     // Make sure you have the wdio adapter package for the specific framework installed
     // before running any tests.
     framework: 'mocha',
-    mochaOpts: {
-        ui: 'bdd',
-        timeout: 60000,    
-    },
-    cucumberOpts: {
-        require: ['./features/step-definitions/**/*.js'], // Path to your step definitions
-        backtrace: true,
-        requireModule: ['@babel/register'], // If you're using ES6/ES7 syntax
-        tags: false,
-        timeout: 60000,
-        ignoreUndefinedDefinitions: false,
-    },
-    services: ['selenium-standalone'],
+
     //
     // The number of times to retry the entire specfile when it fails as a whole
     // specFileRetries: 1,

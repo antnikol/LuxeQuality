@@ -1,0 +1,79 @@
+[
+  {
+    "description": "",
+    "elements": [
+      {
+        "description": "",
+        "id": "login-functionality;user-tries-to-log-in-without-a-username",
+        "keyword": "Scenario",
+        "line": 3,
+        "name": "User tries to log in without a username",
+        "steps": [
+          {
+            "keyword": "Before",
+            "hidden": true,
+            "result": {
+              "status": "passed",
+              "duration": 520499
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Given ",
+            "line": 4,
+            "name": "User is located on the main page of saucedemo website",
+            "match": {
+              "location": "file:\\C:\\Works\\LuxeQuality\\features\\step-definitions\\login.steps.js:5"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 690815198
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "When ",
+            "line": 5,
+            "name": "User clicks the \"Login\" button",
+            "match": {
+              "location": "file:\\C:\\Works\\LuxeQuality\\features\\step-definitions\\login.steps.js:9"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 150124497
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Then ",
+            "line": 6,
+            "name": "User should see \"Epic sadface: Username is required\" error message",
+            "match": {
+              "location": "file:\\C:\\Works\\LuxeQuality\\features\\step-definitions\\login.steps.js:13"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 33621999
+            }
+          },
+          {
+            "keyword": "After",
+            "hidden": true,
+            "result": {
+              "status": "passed",
+              "duration": 621599
+            }
+          }
+        ],
+        "tags": [],
+        "type": "scenario"
+      }
+    ],
+    "id": "login-functionality",
+    "line": 1,
+    "keyword": "Feature",
+    "name": "Login functionality",
+    "tags": [],
+    "uri": "features\\login.feature"
+  }
+]

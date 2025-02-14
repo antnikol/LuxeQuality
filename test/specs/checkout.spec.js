@@ -2,10 +2,10 @@ import { expect } from '@wdio/globals'
 import data from '../fixtures/data.json'
 import { genTestData } from '../fixtures/genData.js'
 
-import CartPage from '../pageobjects/cart.page.js'
-import CheckoutPage from '../pageobjects/checkout.page.js'
-import LoginPage from '../pageobjects/login.page.js'
-import InvertoryPage from '../pageobjects/invertory.page.js'
+import CartPage from '../../pageobjects/cart.page.js'
+import CheckoutPage from '../../pageobjects/checkout.page.js'
+import LoginPage from '../../pageobjects/login.page.js'
+import InvertoryPage from '../../pageobjects/invertory.page.js'
 
 const genData = genTestData()
 
