@@ -114,8 +114,11 @@ export const config = {
     //
     // Make sure you have the wdio adapter package for the specific framework installed
     // before running any tests.
-    framework: 'mocha',
-    
+    framework: 'cucumber',
+    cucumberOpts: {
+        require: ['./features/step-definitions/*.js'], // Шлях до степів
+        timeout: 60000,
+      },
     //
     // The number of times to retry the entire specfile when it fails as a whole
     // specFileRetries: 1,

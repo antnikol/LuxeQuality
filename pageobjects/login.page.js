@@ -6,14 +6,14 @@ class LoginPage extends Page {
   getErrorIcons = () => $$('svg.error_icon')
   getInputUsername = () => $('input[data-test="username"]')
   getInputPassword = () => $('input[data-test="password"]')
-  getBtnSubmit = () => $('input[data-test="login-button"]')
+  getLoginButton = () => $('input[data-test="login-button"]')
   getEpicErrorMessage = () => $('h3[data-test="error"]')
 
 
   async login (username, password) {
     await this.getInputUsername().setValue(username);
     await this.getInputPassword().setValue(password);
-    await this.getBtnSubmit().click();
+    await this.getLoginButton().click();
   }
 
   async open () {
@@ -28,6 +28,13 @@ class LoginPage extends Page {
     return await this.getErrorIcons()[1]
   }
 
+  async clickLoginButton() {
+    await this.getLoginButton().click()
+  }
+
+  async getLoginErrorMessage() {
+    return this.getEpicErrorMessage().getText()
+  }  
 
 }
 
